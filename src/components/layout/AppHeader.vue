@@ -40,15 +40,42 @@ const toggleMenu = () => {
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#home" class="text-sm font-medium hover:text-blue-600 transition-colors">Home</a>
-        <a href="#services" class="text-sm font-medium hover:text-blue-600 transition-colors">Services</a>
-        <a href="#about" class="text-sm font-medium hover:text-blue-600 transition-colors">About</a>
-        <a href="#contact" class="text-sm font-medium hover:text-blue-600 transition-colors">Contact</a>
-        <Button label="Get Started" rounded class="px-6 py-2.5 font-semibold shadow-lg" />
+        <router-link
+          to="/"
+          class="text-sm font-medium hover:text-blue-600 transition-colors"
+        >
+          Home
+        </router-link>
+        <router-link
+          to="/services"
+          class="text-sm font-medium hover:text-blue-600 transition-colors"
+        >
+          Services
+        </router-link>
+        <router-link
+          to="/about"
+          class="text-sm font-medium hover:text-blue-600 transition-colors"
+        >
+          About
+        </router-link>
+        <router-link
+          to="/contact"
+          class="text-sm font-medium hover:text-blue-600 transition-colors"
+        >
+          Contact
+        </router-link>
+        <Button
+          label="Get Started"
+          rounded
+          class="px-6 py-2.5 font-semibold shadow-lg"
+        />
       </nav>
 
       <!-- Mobile Menu Toggle -->
-      <button class="md:hidden text-slate-900" @click="toggleMenu">
+      <button
+        class="md:hidden text-slate-900"
+        @click="toggleMenu"
+      >
         <span class="material-icons">{{ isMenuOpen ? 'close' : 'menu' }}</span>
       </button>
     </div>
@@ -66,11 +93,38 @@ const toggleMenu = () => {
         v-if="isMenuOpen"
         class="md:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 p-6 flex flex-col gap-4 shadow-xl"
       >
-        <a href="#home" class="text-lg font-medium" @click="toggleMenu">Home</a>
-        <a href="#services" class="text-lg font-medium" @click="toggleMenu">Services</a>
-        <a href="#about" class="text-lg font-medium" @click="toggleMenu">About</a>
-        <a href="#contact" class="text-lg font-medium" @click="toggleMenu">Contact</a>
-        <Button label="Get Started" class="w-full py-3 font-semibold" />
+        <router-link
+          to="/"
+          class="text-lg font-medium"
+          @click="toggleMenu"
+        >
+          Home
+        </router-link>
+        <router-link
+          to="/services"
+          class="text-lg font-medium"
+          @click="toggleMenu"
+        >
+          Services
+        </router-link>
+        <router-link
+          to="/about"
+          class="text-lg font-medium"
+          @click="toggleMenu"
+        >
+          About
+        </router-link>
+        <router-link
+          to="/contact"
+          class="text-lg font-medium"
+          @click="toggleMenu"
+        >
+          Contact
+        </router-link>
+        <Button
+          label="Get Started"
+          class="w-full py-3 font-semibold"
+        />
       </div>
     </transition>
   </header>

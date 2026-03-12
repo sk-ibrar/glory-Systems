@@ -2,8 +2,16 @@
 import { useAppStore } from '@/stores/useAppStore'
 import Card from 'primevue/card'
 import { animate } from "motion"
+import { useRouter } from 'vue-router'
 
 const store = useAppStore()
+const router = useRouter()
+
+function go(route: string) {
+  if (route) {
+    router.push(route)
+  }
+}
 
 const handleMouseMove = (e: MouseEvent) => {
   const card = e.currentTarget as HTMLElement
@@ -37,9 +45,12 @@ const handleMouseLeave = (e: MouseEvent) => {
 </script>
 
 <template>
-  <section id="services" class="section-padding bg-white overflow-hidden">
+  <section
+    id="services"
+    class="section-padding bg-white overflow-hidden"
+  >
     <div class="container ">
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-16 mt-6">
         <h2 class="text-4xl md:text-5xl mb-6">
           Our Services
         </h2>
@@ -53,6 +64,7 @@ const handleMouseLeave = (e: MouseEvent) => {
           v-for="service in store.services" 
           :key="service.title"
           class="perspective-container col-4"
+          @click="service.route && go(service.route)"
         >
           <Card 
             class="service-card group border border-slate-100 shadow-sm bg-white hover:shadow-xl transition-all duration-500 rounded-xl overflow-hidden cursor-pointer h-full"

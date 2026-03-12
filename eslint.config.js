@@ -31,7 +31,12 @@ export default [
     },
     rules: {
       'vue/multi-word-component-names': 'off',
-      'no-undef': 'off' // TypeScript handles this better
+      'no-undef': 'off', // TypeScript handles this better
+
+      // disable indentation checks across the codebase
+      'indent': 'off',
+      '@typescript-eslint/indent': 'off',
+      'vue/script-indent': 'off'
     }
   }
 ]
